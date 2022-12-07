@@ -1,3 +1,4 @@
+Note.delete_all
 Todo.delete_all
 List.delete_all
 # List.create(
@@ -22,12 +23,19 @@ List.delete_all
   )
 
   3.times do 
-    Todo.create(
+    @todo = Todo.create(
       title: Faker::Books::TheKingkillerChronicle.book,
       rating: @ratings.sample,
       complete: Faker::Boolean.boolean,
       list_id: @list.id
     )
+    2.times do
+      Note.create(
+        subject: Faker::Movies::PrincessBride.character,
+        body: Faker::Movies::PrincessBride.quote,
+        todo_id: @todo.id
+      )
+    end
   end
 end
 
@@ -47,5 +55,16 @@ Todo.all.each do |t|
   puts t.price 
   puts
 end
+
+puts 'Notes'
+Note.all.each do |n|
+  puts n.subject
+  puts n.body 
+  puts
+end
+
+puts "Lists # #{List.count}" 
+puts "Todos # #{Todo.count}" 
+puts "Notes # #{Note.count}" 
 
 puts "Seeded Data done"
