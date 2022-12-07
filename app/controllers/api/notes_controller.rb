@@ -34,11 +34,11 @@ class Api::NotesController < ApplicationController
 
   private
     def set_todo
-      @todo = @todo.notes.find(params[:todo_id])
+      @todo = Todo.find(params[:todo_id])
     end
 
     def set_note
-      @note = Note.find(params[:id])
+      @note = @todo.notes.find(params[:id])
     end
 
     def note_params

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TodoForm from './TodoForm';
+import { Link } from 'react-router-dom';
 
 const TodoShow = ({ id, title, rating, complete, price, updateTodo, deleteTodo }) => {
   const [editing, setEdit] = useState(false)
@@ -56,7 +57,12 @@ const TodoShow = ({ id, title, rating, complete, price, updateTodo, deleteTodo }
           >
             Delete
           </button>
-          <button>Notes</button>
+          <Link 
+            to={`/${id}/notes`}
+            state={{ title }}
+          >
+            <button>Notes</button>
+          </Link>
         </>
       }
     </>
