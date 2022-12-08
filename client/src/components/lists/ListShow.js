@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import ListForm from './ListForm';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 
-const ListShow = ({ id, title, desc, updateList, deleteList }) => {
+const ListShow = ({ id, title, desc, updateList, deleteList, created_at }) => {
   const [editing, setEdit] = useState(false)
 
   return (
@@ -24,6 +25,12 @@ const ListShow = ({ id, title, desc, updateList, deleteList }) => {
         :
         <>
           <h1>{title}</h1>
+          <h4>
+            Created: 
+            <Moment format='MM-D-YYYY'>
+              {created_at}
+            </Moment>
+          </h4>
           <p>{desc}</p>
           <button onClick={() => setEdit(true)}>
             Edit
