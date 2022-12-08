@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
 // custom styling
 // tweak existing style
 
@@ -58,4 +59,31 @@ const customSize = (size) => {
 
 export const MainTitle = styled.h1`
   font-size: ${ props => customSize(props.size) };
+`
+
+export const MainNavLink = styled(Link)`
+  text-decoration: none;
+  color: ${ props => props.color };
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export const MainHeadSection = styled.div`
+  font-size: 64px;
+  margin: 20% 0;
+`
+
+export const MainHeadSubTitle = styled.h3`
+  font-size: 16px;
+  padding: 10px 250px;
+  text-align: center
+`
+
+export const PriceBox = styled(Col)`
+  border: 1px solid black;
+  text-align: center;
+  margin: 30px 80px;
+  padding: 50px;
 `

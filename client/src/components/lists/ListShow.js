@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ListForm from './ListForm';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import { Button } from 'react-bootstrap';
 
 const ListShow = ({ id, title, desc, updateList, deleteList, created_at }) => {
   const [editing, setEdit] = useState(false)
@@ -18,9 +19,9 @@ const ListShow = ({ id, title, desc, updateList, deleteList, created_at }) => {
             updateList={updateList}
             setEdit={setEdit}
           />
-          <button onClick={() => setEdit(false)}>
+          <Button onClick={() => setEdit(false)}>
             Cancel
-          </button>
+          </Button>
         </>
         :
         <>
@@ -32,14 +33,14 @@ const ListShow = ({ id, title, desc, updateList, deleteList, created_at }) => {
             </Moment>
           </h4>
           <p>{desc}</p>
-          <button onClick={() => setEdit(true)}>
+          <Button onClick={() => setEdit(true)} variant="warning">
             Edit
-          </button>
-          <button onClick={() => deleteList(id)}>
+          </Button>
+          <Button onClick={() => deleteList(id)} variant="danger">
             Delete
-          </button>
+          </Button>
           <Link to={`/${id}/todos`}>
-            <button>Todos</button>
+            <Button variant="success">Todos</Button>
           </Link>
         </>
       }

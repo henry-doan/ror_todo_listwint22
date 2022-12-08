@@ -1,16 +1,17 @@
+import { MainHeadSection, MainHeadSubTitle } from '../styles/mainStyles';
 
 const MainHead = ({ title, subTitle }) => (
-  <>
-    <h1>{title}</h1>
+  <MainHeadSection>
+    <h1 className="text-center">{title}</h1>
     {
       subTitle ?
-      <p>
+      <MainHeadSubTitle>
         {subTitle}
-      </p>
+      </MainHeadSubTitle>
       : 
       ''
     }
-  </>
+  </MainHeadSection>
 )
 
 export default MainHead;
